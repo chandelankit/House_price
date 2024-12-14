@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: bangalore-home-price-prediction
+    env: python
+    buildCommand: ""
+    startCommand: python server/server.py
+    plan: free
