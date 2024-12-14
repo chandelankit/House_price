@@ -28,7 +28,7 @@ def get_estimated_price(location, sqft, bhk, bath):
 
 # Function to load saved artifacts
 def load_saved_artifacts():
-    print("loading saved artifacts...start")
+    console.log("loading saved artifacts...start")
     global __data_columns
     global __locations
 
