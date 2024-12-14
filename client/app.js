@@ -30,7 +30,7 @@ function getBathValue() {
     var bathrooms = getBathValue();
     var location = document.getElementById("uiLocations");
 
-    var url = "https://house-price-2mfe.onrender.com/predict_home_price";
+    var url = "/predict_home_price";
 
     return $.post(url, {
         total_sqft: parseFloat(sqft.value),
@@ -71,7 +71,7 @@ function priceInDollars() {
 
 function onPageLoad() {
     console.log( "document loaded" );
-    var url = "https://house-price-2mfe.onrender.com/get_location_names";
+    var url = "/get_location_names";
     var url1 = "https://v6.exchangerate-api.com/v6/3209a9e3f1d4e9c87ad70e7d/latest/USD"
     $.get(url,function(data, status) {
         console.log("got response for get_location_names request");
