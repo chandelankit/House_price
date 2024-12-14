@@ -1,5 +1,8 @@
 from flask import Flask, request, jsonify, send_from_directory
+import sys
+sys.path.insert(0, '/opt/render/project/src')
 import util
+
 
 app = Flask(__name__, static_folder="../client", template_folder="../client")
 
