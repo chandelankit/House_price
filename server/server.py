@@ -27,22 +27,28 @@ def get_estimated_price(location, sqft, bhk, bath):
     return round(__model.predict([x])[0], 2)
 
 # Function to load saved artifacts
+import os
+
 def load_saved_artifacts():
     print("loading saved artifacts...start")
     global __data_columns
     global __locations
+    global __model
 
-    with open("columns.json", "r") as f:
+    # Get the directory of the current file
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Load columns.json
+    with open(os.path.join(base_dir, "columns.json"), "r") as f:
         __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[3:]  # first 3 columns are sqft, bath, bhk
 
-    print(__locations)
-
-    global __model
+    # Load the model
     if __model is None:
-        with open('banglore_home_prices_model.pickle', 'rb') as f:
+        with open(os.path.join(base_dir, 'banglore_home_prices_model.pickle'), 'rb') as f:
             __model = pickle.load(f)
     print("loading saved artifacts...done")
+
 
 # Function to get location names
 def get_location_names():
